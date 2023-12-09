@@ -18,7 +18,7 @@ def build2dArray(inputFile):
     return arr
 
 def isSymbol(ch):
-    if (not ch.isnumeric() and ch != '.'):
+    if ch == '*':
         return True
     return False
 
@@ -116,11 +116,14 @@ for row in range(rows):
         subTotal = 0
         if isSymbol(inputArray[col][row]):
             # is adjacent to number(s)
-            print('Coords: (' + str(col) + ',' + str(row) + ')')
-            print('Symbol: ' + inputArray[col][row])
             numbersList = adjacentNumbers(inputArray,col,row)
-            print('Numbers: ' + str(numbersList))
-            subTotal = sum(numbersList)
+            if len(numbersList) == 2:
+                print('Coords: (' + str(col) + ',' + str(row) + ')')
+                print('Symbol: ' + inputArray[col][row])
+                print('Numbers: ' + str(numbersList))
+                subTotal = numbersList[0] * numbersList[1]
+                #print('Numbers: ' + str(subTotal))
+            #subTotal = sum(numbersList)
             
         if subTotal > 0:
             total = total + subTotal
