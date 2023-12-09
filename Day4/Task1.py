@@ -14,7 +14,12 @@ for line in f:
                 print('Matching Number: ' + str(winningNum))
         #if len(winningIndices) > 0:
             #print('Matching Total: ' + str(len(winningIndices)))
-
+    
+    if len(winningIndices) > 0:
+        if len(winningIndices) == 1:
+            points = 1
+        else:
+            points = 2 * len(winningIndices)
     #print('Winning Numbers: ' + str(winningNums))
     print('\n\n')
 
